@@ -2,88 +2,72 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Barra de XP Pixel Art</title>
+  <title>Barra Digital</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
     body {
-      background-color: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      font-family: 'Press Start 2P', monospace;
-    }
-
-    .xp-wrapper {
+      background-color: black;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: monospace;
     }
 
-    .xp-level {
-      color: #80ff00;
-      text-shadow: 1px 1px #000;
-      margin-bottom: 6px;
-      font-size: 12px;
+    .number {
+      color: #7CFC00; /* Verde fosforescente */
+      font-size: 32px;
+      margin-bottom: 10px;
     }
 
-    .xp-bar-pixel {
-      width: 304px;
-      height: 24px;
-      image-rendering: pixelated;
-      background-color: #2b2b2b;
-      position: relative;
-      display: grid;
-      grid-template-columns: repeat(19, 16px); /* 16px x 19 = 304px */
-      grid-template-rows: 24px;
+    .bar-container {
+      display: flex;
+      gap: 4px;
     }
 
-    .xp-fill {
-      background-color: #80ff00;
-      grid-column: 1 / span 11; /* Simula 11 de 19 bloques llenos = ~58% XP */
+    .bar-segment {
+      width: 20px;
+      height: 10px;
+      background-color: #7CFC00;
+      box-shadow: 0 0 3px #7CFC00;
     }
 
-    /* Opcional: pixel corners (simulate curved ends manually) */
-    .xp-bar-pixel::before,
-    .xp-bar-pixel::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      width: 4px;
-      height: 24px;
-      background-color: transparent;
-    }
-
-    .xp-bar-pixel::before {
-      left: 0;
-      border-left: 4px solid #000;
-    }
-
-    .xp-bar-pixel::after {
-      right: 0;
-      border-right: 4px solid #000;
-    }
-
-    .xp-bar-border {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      box-sizing: border-box;
-      border: 2px solid #000;
+    .bar-segment.inactive {
+      background-color: #1a1a1a;
+      box-shadow: none;
     }
   </style>
 </head>
 <body>
 
-  <div class="xp-wrapper">
-    <div class="xp-level">17</div>
-    <div class="xp-bar-pixel">
-      <div class="xp-fill"></div>
-      <div class="xp-bar-border"></div>
-    </div>
+  <div class="number">30</div>
+
+  <div class="bar-container">
+    <!-- 20 segmentos, los primeros 15 activos para reflejar "30" -->
+    <!-- Puedes ajustar esto según necesites -->
+    <!-- Activos (verde) -->
+    <div class="bar-segment"></div>
+    <div class="bar-segment"></div>
+    <div class="bar-segment"></div>
+    <div class="bar-segment"></div>
+    <div class="bar-segment"></div>
+    <div class="bar-segment"></div>
+    <div class="bar-segment"></div>
+    <div class="bar-segment"></div>
+    <div class="bar-segment"></div>
+    <div class="bar-segment"></div>
+    <div class="bar-segment"></div>
+    <div class="bar-segment"></div>
+    <div class="bar-segment"></div>
+    <div class="bar-segment"></div>
+    <div class="bar-segment"></div>
+    <!-- Inactivos (oscuro) -->
+    <div class="bar-segment inactive"></div>
+    <div class="bar-segment inactive"></div>
+    <div class="bar-segment inactive"></div>
+    <div class="bar-segment inactive"></div>
+    <div class="bar-segment inactive"></div>
   </div>
 
 </body>
