@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Barra de XP estilo Minecraft</title>
+  <style>
+    body {
+      background-color: #000;
+      font-family: 'Minecraft', monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .xp-container {
+      position: relative;
+      width: 300px;
+      height: 20px;
+      background-color: #2b2b2b;
+      border: 2px solid #000;
+      box-shadow: inset 0 0 3px #111;
+    }
+
+    .xp-bar {
+      height: 100%;
+      background: #80ff00;
+      width: 60%; /* <-- Aquí defines el porcentaje de XP actual */
+    }
+
+    .xp-level {
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #80ff00;
+      font-size: 18px;
+      text-shadow: 1px 1px #000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="xp-container">
+    <div class="xp-level">17</div>
+    <div class="xp-bar"></div>
+  </div>
+
+</body>
+</html>
