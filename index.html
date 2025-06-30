@@ -2,48 +2,88 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Barra de XP estilo Minecraft</title>
+  <title>Barra de XP Pixel Art</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
     body {
       background-color: #000;
-      font-family: 'Minecraft', monospace;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      font-family: 'Press Start 2P', monospace;
     }
 
-    .xp-container {
-      position: relative;
-      width: 300px;
-      height: 20px;
-      background-color: #2b2b2b;
-      border: 2px solid #000;
-      box-shadow: inset 0 0 3px #111;
-    }
-
-    .xp-bar {
-      height: 100%;
-      background: #80ff00;
-      width: 60%; /* <-- Aquí defines el porcentaje de XP actual */
+    .xp-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .xp-level {
-      position: absolute;
-      top: -25px;
-      left: 50%;
-      transform: translateX(-50%);
       color: #80ff00;
-      font-size: 18px;
       text-shadow: 1px 1px #000;
+      margin-bottom: 6px;
+      font-size: 12px;
+    }
+
+    .xp-bar-pixel {
+      width: 304px;
+      height: 24px;
+      image-rendering: pixelated;
+      background-color: #2b2b2b;
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(19, 16px); /* 16px x 19 = 304px */
+      grid-template-rows: 24px;
+    }
+
+    .xp-fill {
+      background-color: #80ff00;
+      grid-column: 1 / span 11; /* Simula 11 de 19 bloques llenos = ~58% XP */
+    }
+
+    /* Opcional: pixel corners (simulate curved ends manually) */
+    .xp-bar-pixel::before,
+    .xp-bar-pixel::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 4px;
+      height: 24px;
+      background-color: transparent;
+    }
+
+    .xp-bar-pixel::before {
+      left: 0;
+      border-left: 4px solid #000;
+    }
+
+    .xp-bar-pixel::after {
+      right: 0;
+      border-right: 4px solid #000;
+    }
+
+    .xp-bar-border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      border: 2px solid #000;
     }
   </style>
 </head>
 <body>
 
-  <div class="xp-container">
+  <div class="xp-wrapper">
     <div class="xp-level">17</div>
-    <div class="xp-bar"></div>
+    <div class="xp-bar-pixel">
+      <div class="xp-fill"></div>
+      <div class="xp-bar-border"></div>
+    </div>
   </div>
 
 </body>
